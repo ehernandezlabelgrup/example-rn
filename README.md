@@ -61,7 +61,7 @@ module.exports = {
 Posterior al comando init, instala las siguientes librerías esenciales:
 
 ```bash
-npm install twrnc redux react-redux react-native-tracking-transparency react-native-vector-icons react-native-responsive-fontsize react-native-device-info intl-pluralrules i18next-http-backend i18next dayjs axios @reduxjs/toolkit @react-native-async-storage/async-storage
+npm install twrnc redux react-redux react-native-tracking-transparency react-native-vector-icons react-native-responsive-fontsize react-native-device-info intl-pluralrules i18next-http-backend i18next dayjs axios @reduxjs/toolkit @react-native-async-storage/async-storage react-i18next
 ```
 
 ```bash
@@ -199,8 +199,8 @@ Abre el archivo ```Info.plist``` ubicado en ```ios/[nombre_app]/```.
 Añade la siguiente entrada para describir el uso de datos de seguimiento:
 
 ```bash
-<key>NSUserTrackingUsageDescription</key>
-<string>[nombre_app] solicita permiso para rastrear tu actividad dentro de la aplicación con el fin de personalizar tu experiencia. Utilizamos estos datos para ofrecerte recomendaciones de planes y eventos deportivos, mejorar nuestra plataforma según tus intereses y facilitar tu conexión con otros deportistas. Tu privacidad es importante para nosotros y siempre tendrás control sobre esta información.</string>
+   <key>NSUserTrackingUsageDescription</key>
+   <string>${PRODUCT_NAME} solicita permiso para rastrear tu actividad dentro de la aplicación con el fin de personalizar tu experiencia. Utilizamos estos datos para ofrecerte recomendaciones de planes y eventos deportivos, mejorar nuestra plataforma según tus intereses y facilitar tu conexión con otros deportistas. Tu privacidad es importante para nosotros y siempre tendrás control sobre esta información.</string>
 ```
 
 
@@ -389,5 +389,4 @@ Cada una de estas librerías contribuye a aspectos específicos del desarrollo, 
 Una vez configurado el entorno y la estructura del proyecto, puedes comenzar a desarrollar las pantallas y componentes siguiendo las necesidades específicas de tu aplicación.
 
 Este manual te proporciona una base sólida para comenzar el desarrollo de aplicaciones móviles con React Native, asegurando que tu proyecto esté bien organizado y preparado para escalar.
-# example-rn
-# example-rn
+
