@@ -390,3 +390,87 @@ Una vez configurado el entorno y la estructura del proyecto, puedes comenzar a d
 
 Este manual te proporciona una base sólida para comenzar el desarrollo de aplicaciones móviles con React Native, asegurando que tu proyecto esté bien organizado y preparado para escalar.
 
+## Añadir Fuentes Personalizadas
+
+Para integrar fuentes personalizadas en tu proyecto React Native, sigue estos pasos detallados para asegurar que las fuentes sean reconocidas y aplicadas correctamente en toda la aplicación.
+
+- Creación del archivo de configuración de React Native
+
+Primero, necesitas configurar React Native para que reconozca las fuentes personalizadas:
+
+Crear el archivo ```react-native.config.js``` en la raíz de tu proyecto con el siguiente contenido:
+
+```bash
+  module.exports = {
+    project: {
+      ios: {},
+      android: {},
+    },
+    assets: ['./src/infrastructure/assets/fonts'],
+  }
+```
+
+Este archivo le indica a React Native dónde buscar los activos, incluyendo las fuentes, durante el enlace automático.
+
+- **Agregar las fuentes al proyecto**
+***Colocar las fuentes:***
+
+- Crea una carpeta fonts dentro de ```src/infrastructure/assets```.
+- Coloca los archivos de fuentes (usualmente .ttf o .otf) dentro de esta carpeta.
+
+- **Modificar la configuración de Tailwind**
+***Configuración de Tailwind:***
+
+En ```src/infrastructure/tailwind/tailwind.config.ts```, modifica la configuración para incluir las fuentes personalizadas. Aquí un ejemplo de cómo establecer y utilizar las fuentes con Tailwind y React Native:
+
+```bash
+import { RFValue } from 'react-native-responsive-fontsize';
+import { colors } from './colors';
+
+// Configuración de tamaños de fuente con Responsive FontSize
+export const FONT_SIZES = {
+  // tus definiciones de tamaño de fuente aquí
+};
+
+const fontFamily = {
+  // Define los nombres de tus fuentes aquí
+  regular: ['Poppins-Regular'],
+  medium: ['Poppins-Medium'],
+  bold: ['Poppins-Bold'],
+  // añade todas las variantes de la fuente Poppins que tengas
+};
+
+const theme = {
+  extend: {
+    colors,
+    fontFamily,
+    fontSize: {
+      // aquí puedes definir los tamaños y line heights
+    }
+  },
+};
+
+export default {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    ...theme,
+  },
+};
+```
+
+En este archivo, has especificado las fuentes que se deben cargar y cómo se deben usar en los componentes de tu aplicación.
+
+- **Vincular las fuentes (opcional para algunas versiones)**
+Si tu versión de React Native lo requiere, después de agregar las fuentes debes ejecutar:
+
+```bash
+react-native-asset
+```
+
+Este comando vincula los recursos (como fuentes) al proyecto nativo.
+
+- **Compilar y probar**
+  
+Finalmente, compila tu aplicación para iOS y Android para asegurarte de que las fuentes se cargan y se muestran correctamente. Puedes necesitar reiniciar el servidor de Metro y reconstruir tu app para ver los cambios.
+
+Con estos pasos, tendrás un sistema robusto para usar fuentes personalizadas en tu aplicación React Native, garantizando una experiencia visual coherente y personalizada para tus usuarios.
